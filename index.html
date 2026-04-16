@@ -40,9 +40,10 @@
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">Salta al contenuto</a>
   <div id="site-header-placeholder"></div>
 
-  <main>
+  <main id="main-content">
     <section class="hero">
       <div class="container">
         <h1>Mattia Fantinati</h1>
@@ -81,7 +82,10 @@
           </div>
         </div>
         <div class="profilo-photo">
-          <img src="img/Mattia-Fantinati-home.jpg" alt="Mattia Fantinati" class="profile-photo">
+          <picture>
+            <source srcset="img/Mattia-Fantinati-home.webp" type="image/webp">
+            <img src="img/Mattia-Fantinati-home.jpg" alt="Mattia Fantinati" class="profile-photo" width="768" height="653" loading="lazy">
+          </picture>
         </div>
       </div>
     </section>

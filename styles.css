@@ -62,6 +62,25 @@
    margin: 0 auto;
  }
 
+ /* ─── SKIP LINK ─── */
+ .skip-link {
+   position: absolute;
+   top: -100%;
+   left: 16px;
+   z-index: 100;
+   background: var(--primary);
+   color: #ffffff;
+   padding: 10px 20px;
+   border-radius: 0 0 var(--radius-md) var(--radius-md);
+   font-size: 0.88rem;
+   font-weight: 600;
+   transition: top 0.2s;
+ }
+
+ .skip-link:focus {
+   top: 0;
+ }
+
  /* ─── HEADER ─── */
  .site-header {
    position: sticky;
@@ -108,10 +127,50 @@
    color: #ffffff;
  }
 
- .header-right {
+ .header-nav {
    display: flex;
    align-items: center;
    gap: 20px;
+ }
+
+ .header-actions {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+ }
+
+ /* ── Hamburger ── */
+ .hamburger {
+   display: none;
+   flex-direction: column;
+   justify-content: center;
+   gap: 5px;
+   background: none;
+   border: none;
+   cursor: pointer;
+   padding: 6px 4px;
+   margin-left: auto;
+ }
+
+ .hamburger span {
+   display: block;
+   width: 22px;
+   height: 2px;
+   background: #ffffff;
+   border-radius: 2px;
+   transition: transform 0.25s ease, opacity 0.25s ease;
+ }
+
+ .hamburger[aria-expanded="true"] span:nth-child(1) {
+   transform: translateY(7px) rotate(45deg);
+ }
+
+ .hamburger[aria-expanded="true"] span:nth-child(2) {
+   opacity: 0;
+ }
+
+ .hamburger[aria-expanded="true"] span:nth-child(3) {
+   transform: translateY(-7px) rotate(-45deg);
  }
 
  .nav-link,
@@ -892,9 +951,49 @@
      width: min(var(--max), calc(100% - 28px));
    }
 
+   /* ── Mobile header ── */
    .header-inner {
-     align-items: flex-start;
+     flex-direction: row;
+     align-items: center;
+     flex-wrap: nowrap;
+     position: relative;
+   }
+
+   .hamburger {
+     display: flex;
+   }
+
+   .header-nav {
+     display: none;
+     position: absolute;
+     top: calc(100% + 1px);
+     left: 50%;
+     transform: translateX(-50%);
+     width: 100vw;
      flex-direction: column;
+     align-items: flex-start;
+     gap: 0;
+     background: rgba(0, 26, 51, 0.98);
+     backdrop-filter: blur(14px);
+     border-top: 1px solid rgba(255, 255, 255, 0.08);
+     padding: 8px 0 20px;
+     z-index: 9;
+   }
+
+   .header-nav.is-open {
+     display: flex;
+   }
+
+   .header-nav .nav-link {
+     font-size: 1rem;
+     padding: 14px 24px;
+     width: 100%;
+     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+   }
+
+   .header-actions {
+     padding: 18px 24px 0;
+     gap: 18px;
    }
 
    .nav {
@@ -913,7 +1012,6 @@
      flex-direction: row;
      flex-wrap: wrap;
    }
-
 
    .highlight-panel,
    .role-item,
