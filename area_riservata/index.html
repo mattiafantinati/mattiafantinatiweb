@@ -68,8 +68,7 @@
   <script>
     // Inserisci gli URL effettivi quando le applicazioni sono disponibili.
     // Esempio: media: 'https://downloader.mattiafantinati.it'
-    const APP_LINKS = { media: '', app1: '', app2: '' };
-    const bindings = [['link-media', APP_LINKS.media], ['link-app1', APP_LINKS.app1], ['link-app2', APP_LINKS.app2]];
+const APP_LINKS = { media: 'https://downloader.mattiafantinati.it/', app1: '', app2: '' };    const bindings = [['link-media', APP_LINKS.media], ['link-app1', APP_LINKS.app1], ['link-app2', APP_LINKS.app2]];
     for (const [id, url] of bindings) {
       const a = document.getElementById(id);
       if (url && /^https:\/\//i.test(url)) {
